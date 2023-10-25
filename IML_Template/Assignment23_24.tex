@@ -1,0 +1,110 @@
+% This is samplepaper.tex, a sample chapter demonstrating the
+% LLNCS macro package for Springer Computer Science proceedings;
+% Version 2.20 of 2017/10/04
+%
+\documentclass[runningheads]{llncs}
+%
+% A lot of package loading
+\usepackage[pdftex]{graphicx}
+\usepackage{geometry}
+\usepackage[cmex10]{amsmath}
+\usepackage{array, algpseudocode}
+\usepackage{amsmath, amssymb, amsfonts, parskip, graphicx, verbatim}
+\usepackage{url, hyperref}
+\usepackage{bm, rotating, adjustbox, latexsym}
+\usepackage{tabularx, booktabs}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\usepackage{float, setspace, mdframed}
+\usepackage{color, contour, placeins, subfig, cite}
+\usepackage[mathscr]{euscript}
+\usepackage[osf]{mathpazo}
+\usepackage{pgf, tikz, microtype, algorithm}
+\usetikzlibrary{shapes,backgrounds,calc,arrows}
+\usepackage{xcolor, colortbl, dsfont}
+
+
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+\renewcommand\UrlFont{\color{blue}\rmfamily}
+
+\graphicspath{{figures/}}
+
+\begin{document}
+%
+\title{Some interesting title}
+%
+%\titlerunning{Abbreviated paper title}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%
+\author{Your Names Go Here + Group Number}
+%
+\authorrunning{Short Author Names / Group Number}
+% First names are abbreviated in the running head.
+% If there are more than two authors, 'et al.' is used.
+%
+\institute{Leiden Institute of Advanced Computer Science, The Netherlands}
+%
+\maketitle % typeset the header of the contribution
+%
+\begin{abstract}
+This document contains the format for the report required for submission of the practical assignment for the course Introduction to Machine Learning. . 
+\end{abstract}
+
+
+\section{Introduction}
+This document serves as a \textit{description of the practical assignment} for the course Introduction to Machine Learning. For this assignment, you are provided with a data set which you should analyze using some of the algorithms discussed during the lectures or this course. The assignment report should be written as a \textit{scientific paper} and submitted together with the code (in Python, using libraries such as scikit-learn~\cite{scikit-learn} is highly encouraged). 
+
+To help you structure your report, we provide you with a \textit{brief report outline} in this document. Please complete the following sections with your own results, explanations and conclusions. This includes the abstract and this introduction! You can deviate from this provided structure if it increases the readability of your submission. 
+
+\section{Data Set and Problem Formulation} \label{sect:dataset}
+
+For this assignment, you will analyse a dataset and apply several machine learning algorithm to it. You are encouraged to select an interesting dataset yourself, e.g. from the field in which you study. Alternatively, you can make use of a dataset provided by us. If you choose to utilize a specific dataset, you should make sure it meets the following criteria:
+\begin{itemize}
+    \item At least 1000 items (data points)
+    \item At least 10 features (columns, excluding identifiers etc.), a mix of continuous and discrete variables
+    \item There should be a clear prediction (regression) task present. 
+    \item The dataset is publically accessible (no proprietary data)
+\end{itemize}
+In this case, you should send an email with a link to your dataset to the TA-mailbox so we can verify whether the dataset is appropriate for the assignment.
+
+In the remaining part of this section please add your description of the data set you use and the learning tasks you will tackle in the next sections. You could look at what variables are present in the data set, how they are distributed, what type of variables they are. Apply some pre-processing \textbf{if this is needed to make the data usable}\footnote{Hint: Look at the variable types, and check if these are directly usable or might be better to transform (e.g. strings to numbers). You should remove attributes which are not relevant to the prediction task.}. You could make use of different ways to visualize the data or look at the correlations between different features.\footnote{Hint: For some inspiration on the kind of plots you can create, you can look at the practicums, or go to \url{https://seaborn.pydata.org/examples/index.html}}
+
+
+\section{Experiments}\label{lab:exp}
+This is the main section of your report. All methods, experiment descriptions and results should be included here. You have a lot of freedom in the type of experiments you choose to perform, but you should make sure to clearly explain (and motivate) the setup and describe the methods you use. Any results you obtain should be discussed clearly.
+Your experiments should contain at least the following:
+\begin{itemize}
+    \item Pick one of the regressors we discussed throughout the course, and run it on the prediction task (using cross-validation). Identify at least one key parameter of your chosen regressor, and show how this impact the cross-validation score. Explain why this is the case! 
+    \item Transform your regression problem into a classification problem (around 5 classes). Turn the classification version of this problem into multiple binary classification problems. Use both one-vs-all and one-vs-one methods and solve this using logistic regression. Make an in-depth comparison of these two methods of splitting the problem into binary classification. 
+    \item Tackle one of these classification problems (either a single binary classification or the multi-class classification) and apply a boosting to the process (pick an appropriate base classifier). Compare the result of the base classifier with different numbers of boosted estimators. Does boosting improve performance in cross-validation? Why / why not?
+    \item Use any of the dimensionality reduction methods discussed in the course to reduce the dimensionality of the data set to 2 (use all features except the class you predicted, and any ID variables). Perform clustering on both the original and the dimension-reduced data. What differences do you find when changing the ordering of dimensionality reduction and clustering? Do the clusters found match with the regression objective (or the multi-class classification) you were predicting before?  
+    \item Use any method discussed during the lectures to get a predictor which is as accurate as possible on your regression task (e.g. by tuning the parameters). Motivate why you choose this method, and identify why this manages to achieve these levels of accuracy. 
+\end{itemize}
+
+You can include any number of additional experiments, e.g. parameter tuning, comparing different dimensionality reduction techniques, visualizing decision boundaries\dots, whatever experiments you find most interesting. 
+
+Within this report, make sure you briefly explain the working principles of the methods you use and reason why they lead to the found results. Use relevant visualizations and explain what is being shown (every figure needs to have a caption, and should be referenced in the text). The reasoning and discussion about the methods used is key in showing that you understand the concepts, and is thus the most important part in deciding your assignment grade. Since this is a scientific report, make sure to cite all references you use (papers, books,\dots)!
+
+\section{Conclusion and future work}
+Conclude your most important findings, and what you can learn from them. Identify some points on which can be improved in future, or areas where other algorithms might be useful. 
+
+
+\bibliographystyle{splncs04}
+\bibliography{bibliography.bib}
+
+% \appendix
+% \section{Content of the assignment}\label{app:p1}
+% \begin{enumerate}
+%     \item Identify what variables are present in the data set, how they are distributed, what type of variables they are. Apply some pre-processing if this is needed to make the data usable\footnote{Hint: Look at the variable types, and check if these are directly usable or might be better to transform (e.g. strings to numbers). You should als remove attributes which are not relevant to the prediction task, such as the observation IDs.}. Make use of different ways to visualize the data, and look at the correlations between different features\footnote{Hint: For some inspiration on the kind of plots you can create, you can look at the practicums, or go to \url{https://seaborn.pydata.org/examples/index.html}}. (This should be part of Section~\ref{sect:dataset} of your report.).
+%     \item Pick any one of the classifiers we discussed throughout the course, and run it on the prediction task using cross-validation. Identify at least one key parameter of your chosen classifier, and show how this impact the cross-validation score. Explain why this is the case! This part, and all of the following tasks, should be part of the experiments section (Section~\ref{lab:exp}).
+%     \item Use any of the dimensionality reduction methods discussed in the course to reduce the dimensionality of the data set to 2 (use all features except the class you predicted, and any ID variables). Identify what happens when some features are left out of the data set before applying this transformation. What does this tell you about these attributes? Perform clustering on both the original and the dimension-reduced data. What differences do you find when changing the ordering of reduction and clustering? Do the clusters found match with the type of object you were predicting before?  
+%     \item Use any method discussed during the lectures to get a predictor which is as accurate as possible. Motivate why you choose this method, and identify why this manages to achieve these levels of accuracy. 
+% \end{enumerate}
+
+% For your report, make sure you explain the working principles of the methods you use and reason why they lead to the found results. Use relevant visualizations and explain what is being shown (every figure needs to have a caption, and be referenced in the text). The reasoning and discussion about the methods used is key in showing that you understand the concepts, and is thus the most important part in deciding your assignment grade. Since this is a scientific report, make sure to cite all references you use (papers, books,\dots)!
+
+\section{Submission}\label{app:submission}
+Submission of the assignment goes through Brightspace only, where you submit a pdf of you report, and a single python (or notebook) file containing the code used to run your experiments and create your plots (this should be reproducible by us!). Your report should be a \textbf{maximum} of 12 pages long (excluding references). 
+
+\end{document}

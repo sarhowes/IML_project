@@ -1,0 +1,8 @@
+sqft_lot - Square footage of the whole property (land included)
+waterfront - does the house have a view of the water
+view - An index from 0 to 4 of how good the view of the property was
+condition - An index from 1 to 5 on the condition of the apartment
+grade - An index from 1 to 13 for the quality of construction and design.
+sqft_above - The square footagethat is above ground 
+sqft_basement - The square footage that is below ground 
+sqft_living15 / lot15 - equivalent sqft averages for the nearest 15 neighbors
